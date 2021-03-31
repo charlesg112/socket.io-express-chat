@@ -1,5 +1,5 @@
 {
-  "name": "untitled",
+  "name": "Dybe chat",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",
