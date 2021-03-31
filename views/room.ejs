@@ -31,7 +31,7 @@
     <script>
         const PORT = '<%- JSON.stringify(port) %>'.replace('"', '').replace('"', '');
         const HOST = '<%- JSON.stringify(host) %>'.replace('"', '').replace('"', '');
-        const socket = io(`ws://${HOST}:${PORT}`);
+        const socket = io(`wss://${HOST}:${PORT}`);
         const username = '<%- JSON.stringify(username) %>'.replace('"', '').replace('"', ''); // Left and right " "
         socket.on("connect", () => {
             console.log(`Connected to the socket as ${username}`);
