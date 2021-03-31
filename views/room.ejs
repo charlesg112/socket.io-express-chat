@@ -29,7 +29,9 @@
             integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A=="
             crossorigin="anonymous"></script>
     <script>
-        const socket = io("ws://localhost:3000");
+        const PORT = '<%- JSON.stringify(port) %>'.replace('"', '').replace('"', '');
+        const HOST = '<%- JSON.stringify(host) %>'.replace('"', '').replace('"', '');
+        const socket = io(`ws://${HOST}:${PORT}`);
         const username = '<%- JSON.stringify(username) %>'.replace('"', '').replace('"', ''); // Left and right " "
         socket.on("connect", () => {
             console.log(`Connected to the socket as ${username}`);
@@ -70,9 +72,6 @@
     @import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
     #chatPlaceholder {
         min-width: 400px;
-    }
-    .SERVER_MESSAGE {
-        color: indianred;
     }
 </style>
 </html>

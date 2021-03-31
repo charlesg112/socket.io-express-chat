@@ -5,6 +5,7 @@ const users = require('./users');
 const socketIo = require('socket.io');
 const mysockets = require('./mysockets');
 const PORT = process.env.PORT || 5000
+const HOST = process.env.HOST || "localhost";
 
 const app = express();
 app.use(express.json());
@@ -12,7 +13,11 @@ app.use(cookieParser());
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = socketIo(server, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }});
 
 app.get("/", (req, res) => {
     res.render('home');
@@ -22,7 +27,7 @@ app.get("/room", (req, res) => {
     const token = req.cookies.user_token;
     let username = users.getUsernameFromToken(token);
     if (username) {
-        return res.render('room', { username: username });
+        return res.render('room', { username: username, port: PORT, host: HOST });
     }
     return res.redirect('/');
 });
