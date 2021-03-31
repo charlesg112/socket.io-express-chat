@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const users = require('./users');
 const socketIo = require('socket.io');
 const mysockets = require('./mysockets');
-const PORT = 3000;
+const PORT = process.env.PORT || 5000
 
 const app = express();
 app.use(express.json());
