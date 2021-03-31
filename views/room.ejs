@@ -22,16 +22,14 @@
 
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.js"
-            integrity="sha512-2RDFHqfLZW8IhPRvQYmK9bTLfj/hddxGXQAred2wNZGkrKQkLGj8RCkXfRJPHlDerdHHIzTFaahq4s/P4V6Qig=="
-            crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"
             integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A=="
             crossorigin="anonymous"></script>
     <script>
         const PORT = '<%- JSON.stringify(port) %>'.replace('"', '').replace('"', '');
         const HOST = '<%- JSON.stringify(host) %>'.replace('"', '').replace('"', '');
-        const socket = io(`wss://${HOST}:${PORT}`);
+        const socket = io();
         const username = '<%- JSON.stringify(username) %>'.replace('"', '').replace('"', ''); // Left and right " "
         socket.on("connect", () => {
             console.log(`Connected to the socket as ${username}`);
