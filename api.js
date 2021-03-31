@@ -5,7 +5,7 @@ const users = require('./users');
 const socketIo = require('socket.io');
 const mysockets = require('./mysockets');
 const PORT = process.env.PORT || 5000
-const HOST = process.env.HOST || "localhost";
+const HOST = process.env.HOST_URL || "localhost";
 
 const app = express();
 app.use(express.json());
